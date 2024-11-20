@@ -30,22 +30,21 @@ import { QuillService } from './quill.service'
 import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'quill-view',
-  styles: [`
+    encapsulation: ViewEncapsulation.None,
+    selector: 'quill-view',
+    styles: [`
 .ql-container.ngx-quill-view {
   border: 0;
 }
 `],
-  template: `
+    template: `
 @if (preserve) {
   <pre quill-view-element></pre>
 } @else {
   <div quill-view-element></div>
 }
 `,
-  standalone: true,
-  imports: [CommonModule]
+    imports: [CommonModule]
 })
 export class QuillViewComponent implements AfterViewInit, OnChanges, OnDestroy, OnInit {
   @Input() format?: 'object' | 'html' | 'text' | 'json'

@@ -741,23 +741,23 @@ export abstract class QuillEditorBase implements AfterViewInit, ControlValueAcce
 }
 
 @Component({
-  encapsulation: ViewEncapsulation.Emulated,
-  providers: [
-    {
-      multi: true,
-      provide: NG_VALUE_ACCESSOR,
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      useExisting: forwardRef(() => QuillEditorComponent)
-    },
-    {
-      multi: true,
-      provide: NG_VALIDATORS,
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      useExisting: forwardRef(() => QuillEditorComponent)
-    }
-  ],
-  selector: 'quill-editor',
-  template: `
+    encapsulation: ViewEncapsulation.Emulated,
+    providers: [
+        {
+            multi: true,
+            provide: NG_VALUE_ACCESSOR,
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            useExisting: forwardRef(() => QuillEditorComponent)
+        },
+        {
+            multi: true,
+            provide: NG_VALIDATORS,
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            useExisting: forwardRef(() => QuillEditorComponent)
+        }
+    ],
+    selector: 'quill-editor',
+    template: `
     @if (toolbarPosition !== 'top') {
       @if (preserve) {
         <pre quill-editor-element></pre>
@@ -778,14 +778,13 @@ export abstract class QuillEditorBase implements AfterViewInit, ControlValueAcce
       }
     }
   `,
-  styles: [
-    `
+    styles: [
+        `
     :host {
       display: inline-block;
     }
     `
-  ],
-  standalone: true,
-  imports: [CommonModule]
+    ],
+    imports: [CommonModule]
 })
 export class QuillEditorComponent extends QuillEditorBase {}

@@ -29,7 +29,7 @@ class CustomModule {
 }
 
 @Component({
-  template: `
+    template: `
 <quill-editor
   (onBlur)="blured = true"
   (onFocus)="focused = true"
@@ -48,7 +48,8 @@ class CustomModule {
   (onContentChanged)="handleChange($event)"
   (onSelectionChanged)="handleSelection($event)"
 ></quill-editor>
-`
+`,
+    standalone: false
 })
 class TestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editorComponent!: QuillEditorComponent
@@ -91,7 +92,7 @@ class TestComponent {
 }
 
 @Component({
-  template: `
+    template: `
 <quill-editor
   [customToolbarPosition]="toolbarPosition"
   [(ngModel)]="title" [required]="true"
@@ -127,7 +128,8 @@ class TestComponent {
     <span>below</span>
   </div>
 </quill-editor>
-`
+`,
+    standalone: false
 })
 class TestToolbarComponent {
   title = 'Hallo'
@@ -141,9 +143,10 @@ class TestToolbarComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <quill-editor [formControl]='formControl' [minLength]='minLength'></quill-editor>
-`
+`,
+    standalone: false
 })
 class ReactiveFormTestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
@@ -152,9 +155,10 @@ class ReactiveFormTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <quill-editor [ngModel]="content" [preserveWhitespace]="true"></quill-editor>
-`
+`,
+    standalone: false
 })
 class PreserveWhitespaceTestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
@@ -162,9 +166,10 @@ class PreserveWhitespaceTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <quill-editor [modules]="{custom: true}" [customModules]="[{path: 'modules/custom', implementation: impl}]"></quill-editor>
-`
+`,
+    standalone: false
 })
 class CustomModuleTestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
@@ -172,9 +177,10 @@ class CustomModuleTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <quill-editor [modules]="{custom: true}" [customModules]="customModules"></quill-editor>
-`
+`,
+    standalone: false
 })
 class CustomAsynchronousModuleTestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
@@ -187,9 +193,10 @@ class CustomAsynchronousModuleTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <quill-editor [ngModel]="content" [linkPlaceholder]="'https://test.de'"></quill-editor>
-`
+`,
+    standalone: false
 })
 class CustomLinkPlaceholderTestComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
@@ -250,10 +257,11 @@ describe('Basic QuillEditorComponent', () => {
 describe('Formats', () => {
   describe('object', () => {
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" format="object" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class ObjectComponent {
       title = [{
         insert: 'Hello'
@@ -310,10 +318,11 @@ describe('Formats', () => {
 
   describe('html', () => {
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" format="html" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class HTMLComponent {
       title = '<p>Hallo</p>'
       editor: any
@@ -324,10 +333,11 @@ describe('Formats', () => {
     }
 
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" [sanitize]="true" format="html" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class HTMLSanitizeComponent {
       title = '<p>Hallo <img src="wroooong.jpg" onerror="window.alert(\'sanitize me\')"></p>'
       editor: any
@@ -390,10 +400,11 @@ describe('Formats', () => {
 
   describe('text', () => {
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" format="text" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class TextComponent {
       title = 'Hallo'
       editor: any
@@ -451,10 +462,11 @@ describe('Formats', () => {
 
   describe('json', () => {
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" format="json" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class JSONComponent {
       title = JSON.stringify([{
         insert: 'Hallo'
@@ -467,10 +479,11 @@ describe('Formats', () => {
     }
 
     @Component({
-      template: `
+    template: `
     <quill-editor [(ngModel)]="title" format="json" (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-    `
-    })
+    `,
+    standalone: false
+})
     class JSONInvalidComponent {
       title = JSON.stringify([{
         insert: 'Hallo'
@@ -550,8 +563,9 @@ describe('Dynamic styles', () => {
     format="text"
     [styles]="style"
     (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-  `
-  })
+  `,
+    standalone: false
+})
   class StylingComponent {
     title = 'Hallo'
     style = {
@@ -604,8 +618,9 @@ describe('Dynamic classes', () => {
     format="text"
     [classes]="classes"
     (onEditorCreated)="handleEditorCreated($event)"></quill-editor>
-  `
-  })
+  `,
+    standalone: false
+})
   class ClassesComponent {
     title = 'Hallo'
     classes = 'test-class1 test-class2'
@@ -1422,8 +1437,9 @@ describe('QuillEditor - defaultEmptyValue', () => {
   @Component({
     template: `
       <quill-editor defaultEmptyValue=""></quill-editor>
-  `
-  })
+  `,
+    standalone: false
+})
   class DefaultEmptyValueTestComponent {
     @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
   }
@@ -1452,8 +1468,9 @@ describe('QuillEditor - beforeRender', () => {
   @Component({
     template: `
       <quill-editor [beforeRender]="beforeRender"></quill-editor>
-  `
-  })
+  `,
+    standalone: false
+})
   class BeforeRenderTestComponent {
     @ViewChild(QuillEditorComponent, { static: true }) editor!: QuillEditorComponent
 

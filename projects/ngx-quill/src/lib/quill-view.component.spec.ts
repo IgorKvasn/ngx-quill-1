@@ -59,10 +59,11 @@ describe('Basic QuillViewComponent', () => {
 describe('Formats', () => {
   describe('object', () => {
     @Component({
-      template: `
+    template: `
     <quill-view [content]="content" [customModules]="[{path: 'modules/test', implementation: impl}]" format="object"></quill-view>
-    `
-    })
+    `,
+    standalone: false
+})
     class ObjectComponent {
       @ViewChild(QuillViewComponent, {
         static: true
@@ -107,10 +108,11 @@ describe('Formats', () => {
 
   describe('html', () => {
     @Component({
-      template: `
+    template: `
     <quill-view [content]="content" format="html"></quill-view>
-    `
-    })
+    `,
+    standalone: false
+})
     class HTMLComponent {
       @ViewChild(QuillViewComponent, {
         static: true
@@ -150,10 +152,11 @@ describe('Formats', () => {
 
   describe('text', () => {
     @Component({
-      template: `
+    template: `
     <quill-view [content]="content" format="text"></quill-view>
-    `
-    })
+    `,
+    standalone: false
+})
     class TextComponent {
       @ViewChild(QuillViewComponent, {
         static: true
@@ -192,10 +195,11 @@ describe('Formats', () => {
 
   describe('json', () => {
     @Component({
-      template: `
+    template: `
     <quill-view [content]="content" format="json"></quill-view>
-    `
-    })
+    `,
+    standalone: false
+})
     class JSONComponent {
       @ViewChild(QuillViewComponent, {
         static: true
@@ -246,8 +250,9 @@ describe('Advanced QuillViewComponent', () => {
   @Component({
     template: `
   <quill-view [content]="content" format="html" (onEditorCreated)="handleEditorCreated($event)"></quill-view>
-  `
-  })
+  `,
+    standalone: false
+})
   class AdvancedComponent {
     @ViewChild(QuillViewComponent, {static: true}) view: QuillViewComponent | undefined
     content = '<p>Hallo</p>'

@@ -12,21 +12,20 @@ import {
 import { CommonModule } from '@angular/common'
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'quill-view-html',
-  styles: [`
+    encapsulation: ViewEncapsulation.None,
+    selector: 'quill-view-html',
+    styles: [`
 .ql-container.ngx-quill-view-html {
   border: 0;
 }
 `],
-  template: `
+    template: `
   <div class="ql-container" [ngClass]="themeClass">
     <div class="ql-editor" [innerHTML]="innerHTML">
     </div>
   </div>
 `,
-  standalone: true,
-  imports: [CommonModule]
+    imports: [CommonModule]
 })
 export class QuillViewHTMLComponent implements OnChanges {
   @Input() content = ''

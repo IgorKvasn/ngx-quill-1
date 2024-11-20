@@ -35,8 +35,9 @@ describe('QuillViewHTMLComponent - content', () => {
   @Component({
     template: `
   <quill-view-html [content]="content" theme="snow"></quill-view-html>
-  `
-  })
+  `,
+    standalone: false
+})
   class HTMLComponent {
     @ViewChild(QuillViewHTMLComponent, {
       static: true
@@ -81,8 +82,9 @@ describe('QuillViewHTMLComponent - sanitize', () => {
   @Component({
     template: `
   <quill-view-html [content]="content" [sanitize]="sanitize"></quill-view-html>
-  `
-  })
+  `,
+    standalone: false
+})
   class HTMLComponent {
     content = '<p>Hallo <img src="wroooong.jpg" onerror="window.alert(\'sanitize me\')"></p>'
     sanitize = false
