@@ -23,7 +23,7 @@
     "url": "https://github.com/KillerCodeMonkey/ngx-quill"
   },
   "engines": {
-    "node": "18"
+    "node": "^18 || ^22"
   },
   "keywords": [
     "editor",
