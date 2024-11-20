@@ -4,7 +4,7 @@
 
 // Re-export everything from the secondary entry-point so we can be backwards-compatible
 // and don't introduce breaking changes for consumers.
-export * from 'ngx-quill/config'
+export * from 'ngx-quill-one/config'
 
 export * from './lib/quill.module'
 export * from './lib/quill.service'

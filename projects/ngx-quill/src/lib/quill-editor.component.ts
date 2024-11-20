@@ -30,7 +30,7 @@ import { debounceTime, mergeMap } from 'rxjs/operators'
 
 import { ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms'
 
-import { defaultModules, QuillModules, CustomOption, CustomModule } from 'ngx-quill/config'
+import { defaultModules, QuillModules, CustomOption, CustomModule } from 'ngx-quill-one/config'
 
 import { getFormat } from './helpers'
 import { QuillService } from './quill.service'
